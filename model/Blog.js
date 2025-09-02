@@ -9,10 +9,10 @@ const blogSchema = new mongoose.Schema(
     author: { type: String, default: "Admin" },  
     slug: { type: String, required: true, unique: true, index: true }, // optional UI-friendly string; created from title if not provided
     date: { type: String, required: true }, 
-    image: { type: String },
+    imageUrl: { type: String },
     categories: { type: [String], default: [] },
     tags: { type: [String], default: [] },
-  },
+  }, 
   { timestamps: true } 
 );
 
