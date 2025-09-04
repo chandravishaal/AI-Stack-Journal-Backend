@@ -3,11 +3,6 @@ const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const multer = require("multer");
 
 
-console.log("CLOUDINARY CONFIG:");
-console.log("NAME:", process.env.CLOUDINARY_NAME ? "loaded" : "missing");
-console.log("KEY:", process.env.CLOUDINARY_API_KEY ? "loaded" : "missing");
-console.log("SECRET:", process.env.CLOUDINARY_API_SECRET ? "loaded" : "missing");
-
 if (!process.env.CLOUDINARY_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
   console.warn("Cloudinary env vars missing. Backend upload will fail until these are set.");
 }

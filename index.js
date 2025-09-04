@@ -30,9 +30,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Something went wrong" });
 });
 
-// Start server
+// Start server 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
-  console.log("NODE_ENV:", process.env.NODE_ENV || "not set");
-  console.log("CLOUDINARY_NAME:", process.env.CLOUDINARY_NAME ? "loaded" : "missing");
 });
