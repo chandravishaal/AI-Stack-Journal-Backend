@@ -77,12 +77,6 @@
 
 //above was from openai but it required credits, lets go with google ai studio
 
-
-
-
-
-
-
 const express = require("express");
 const axios = require("axios");
 const Post = require("../model/Blog");
@@ -92,7 +86,6 @@ const API_KEY = process.env.GOOGLE_API_KEY;
 // const MODEL = process.env.GOOGLE_MODEL || "text-bison-001";
 
 if (!API_KEY) console.warn("No GOOGLE_API_KEY in env");
-
 
 router.post("/summarize", async (req, res) => {
   try {
@@ -109,7 +102,9 @@ router.post("/summarize", async (req, res) => {
     const prompt = `Summarize the article below for a developer and AI enthusiast audience. Provide:\nTL;DR One-line .\n  3 concise bullets with important points. use arrows → for bullet points.\n3)\nArticle:\n${safeText}`;
 
     // const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    
+    //2.0 flash has more rpd and rpm
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${API_KEY}`;
 
     // const body = { prompt: { text: prompt } };
     const body = {
