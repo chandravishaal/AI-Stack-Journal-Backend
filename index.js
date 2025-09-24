@@ -4,6 +4,8 @@ require("dotenv").config();
 
 const connectDB = require("./config/db");
 const blogRoutes = require("./routes/blogRoutes");
+const aiRouter = require('./routes/aiSummarise'); // path as created above
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,6 +19,9 @@ app.use(express.urlencoded({ extended: true, limit: "5mb" })); // for form bodie
 
 // Routes
 app.use("/api/blogs", blogRoutes);
+app.use('/api/ai', aiRouter);
+
+
 
 // quick health check
 app.get("/", (req, res) => {
